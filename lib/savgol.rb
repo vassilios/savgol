@@ -24,7 +24,7 @@ module Savgol
     def savgol_uneven(xvals, yvals, window_points=11, order=4, check_args: false, new_xvals: nil)
       sg_check_arguments(window_points, order) if check_args
 
-      half_window = (window_points -1) / 2
+      half_window = (window_points - 1) / 2
       yvals_padded = sg_pad_ends(yvals, half_window)
       xvals_padded = sg_pad_xvals(xvals, half_window)
       xvals_size = xvals.size
@@ -104,7 +104,7 @@ module Savgol
 
     def savgol(array, window_points=11, order=4, deriv: 0, check_args: false)
       sg_check_arguments(window_points, order) if check_args
-      half_window = (window_points -1) / 2
+      half_window = (window_points - 1) / 2
       weights = sg_weights(half_window, order, deriv)
       padded_array = sg_pad_ends(array, half_window)
       sg_convolve(padded_array, weights)
